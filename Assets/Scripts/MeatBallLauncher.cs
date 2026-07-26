@@ -6,7 +6,8 @@ public class MeatBallLauncher : MonoBehaviour
 {
     public int numMeatballs;
     public GameObject meatBallPrefab;
-    public float maxLaunchForce = 10f;
+    public float minLaunchForce = 0f;
+    public float maxLaunchForce = 4f;
     public float timeToHoldButton = 2f;
     public float timeToSpin;
     public float maxAngle;
@@ -37,7 +38,7 @@ public class MeatBallLauncher : MonoBehaviour
             meatBallText.text = numMeatballs.ToString();
             isLaunching = false;
             LaunchMeatBall(currentForce);
-            currentForce = 0f;
+            currentForce = minLaunchForce;
             rotateTween.Play();
         }
 
@@ -58,7 +59,7 @@ public class MeatBallLauncher : MonoBehaviour
 
     public void StartPressingLaunchButton()
     {
-        currentForce = 0f;
+        currentForce = minLaunchForce;
         isLaunching = true;
     }
 

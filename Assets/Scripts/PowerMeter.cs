@@ -25,7 +25,7 @@ public class PowerMeter : MonoBehaviour
 
             
 
-            float fillMeter = launcher.currentForce / launcher.maxLaunchForce;
+            float fillMeter = (launcher.currentForce - launcher.minLaunchForce) / (launcher.maxLaunchForce - launcher.minLaunchForce);
             Vector3 targetScale = powerSprite.transform.localScale;
             targetScale.y = fillMeter * maxScale;
             powerSprite.transform.localScale = targetScale;

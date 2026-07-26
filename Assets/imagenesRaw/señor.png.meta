@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 60b5ad6d33c1eb34aadd404671fbfe20
+guid: d59da773ed4b7964597856b6a6506e4f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5194590675202219771
-    second: chico_0
+      213: 1966200211143520151
+    second: "se\xF1or_0"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 4500
+  spritePixelsToUnits: 4000
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -115,13 +115,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: chico_0
+      name: "se\xF1or_0"
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1807
-        height: 2697
+        width: 2091
+        height: 2922
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,8 +130,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 501e3039d4b19e7b0800000000000000
-      internalID: -5194590675202219771
+      spriteID: 79fe186bca8594b10800000000000000
+      internalID: 1966200211143520151
       vertices: []
       indices: 
       edges: []
@@ -150,7 +150,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      chico_0: -5194590675202219771
+      "se\xF1or_0": 1966200211143520151
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
