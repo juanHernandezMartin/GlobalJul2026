@@ -901,6 +901,8 @@ MonoBehaviour:
   timeToSpin: 2
   maxAngle: 70
   elevation: 1
+  currentForce: 0
+  isLaunching: 0
 --- !u!1 &1106976351
 GameObject:
   m_ObjectHideFlags: 0
@@ -940,7 +942,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.9, y: 1, z: 0.9}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1106976353
 MeshRenderer:
@@ -1280,6 +1282,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1488251111}
+  - component: {fileID: 1488251112}
   m_Layer: 0
   m_Name: Medidor
   m_TagString: Untagged
@@ -1304,6 +1307,23 @@ Transform:
   - {fileID: 799295847}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
+--- !u!114 &1488251112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488251110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee709106c947be34dad1c8d928ea95e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PowerMeter
+  launcher: {fileID: 1098072062}
+  backGroundSprite: {fileID: 264872333}
+  powerSprite: {fileID: 799295846}
+  minScale: 0
+  minPosY: 0
 --- !u!1 &1601066964
 GameObject:
   m_ObjectHideFlags: 0
@@ -1396,6 +1416,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
+--- !u!1 &1612315689
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1612315690}
+  - component: {fileID: 1612315691}
+  m_Layer: 0
+  m_Name: Gamesetings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1612315690
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1612315689}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1612315691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1612315689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3dba19cb8e9e184387eba0fd3f2d2bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameSetings
 --- !u!1 &1633753630
 GameObject:
   m_ObjectHideFlags: 0
@@ -1696,6 +1760,8 @@ MonoBehaviour:
   timeToSpin: 2
   maxAngle: 70
   elevation: 0
+  currentForce: 0
+  isLaunching: 0
 --- !u!1 &1941180499
 GameObject:
   m_ObjectHideFlags: 0
@@ -1708,6 +1774,7 @@ GameObject:
   - component: {fileID: 1941180502}
   - component: {fileID: 1941180501}
   - component: {fileID: 1941180500}
+  - component: {fileID: 1941180504}
   m_Layer: 0
   m_Name: suelo
   m_TagString: Untagged
@@ -1730,7 +1797,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -1808,6 +1875,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 511982650}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1941180504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941180499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63fce8b78d2e1ca4bb400581b9cf6703, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TableScript
+  smashedMeatBallPrefab: {fileID: 5270784482282526323, guid: 5ec1f4707915d704db20b746c24e0a3e, type: 3}
 --- !u!1001 &1090166748229043765
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1937,3 +2017,4 @@ SceneRoots:
   - {fileID: 143653252}
   - {fileID: 1601066966}
   - {fileID: 1488251111}
+  - {fileID: 1612315690}

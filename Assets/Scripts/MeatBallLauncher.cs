@@ -10,14 +10,18 @@ public class MeatBallLauncher : MonoBehaviour
     public float maxAngle;
     public float elevation;
 
-    private float currentForce = 0f;
-    private bool isLaunching;
+    [HideInInspector]
+    public float currentForce = 0f;
+    [HideInInspector]
+    public bool isLaunching;
     private Vector3 startingRotation;
+
+    private Tween rotateTween;
 
     public void Start()
     {
         startingRotation = transform.eulerAngles;
-        transform.DOLocalRotate(new Vector3(0, maxAngle, 0), timeToSpin).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutSine);
+        rotateTween = transform.DOLocalRotate(new Vector3(0, maxAngle, 0), timeToSpin).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutSine);
     }
 
     public void Update()
@@ -27,14 +31,13 @@ public class MeatBallLauncher : MonoBehaviour
             isLaunching = false;
             LaunchMeatBall(currentForce);
             currentForce = 0f;
-            transform.eulerAngles = startingRotation;
-            transform.DOLocalRotate(new Vector3(0, maxAngle, 0), timeToSpin).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutSine);
+            rotateTween.Play();
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
             //stop rotation and start increasing force
-            transform.DOKill();
+            rotateTween.Pause();
             StartPressingLaunchButton();
         }
 
