@@ -13,6 +13,7 @@ public class MeatBallLauncher : MonoBehaviour
     public float maxAngle;
     public float elevation;
     public TextMeshProUGUI meatBallText;
+    public CazuelaScript cazuela;
 
     [HideInInspector]
     public float currentForce = 0f;
@@ -32,8 +33,9 @@ public class MeatBallLauncher : MonoBehaviour
 
     public void Update()
     {
-        if( Input.GetKeyUp(KeyCode.Space))
+        if( Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0))
         {
+            cazuela.LaunchMeatBall();
             numMeatballs--;
             meatBallText.text = numMeatballs.ToString();
             isLaunching = false;
@@ -42,7 +44,7 @@ public class MeatBallLauncher : MonoBehaviour
             rotateTween.Play();
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
             //stop rotation and start increasing force
             rotateTween.Pause();

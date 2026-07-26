@@ -15,9 +15,6 @@ public class PersonScript : MonoBehaviour
         duration = duration / 2 + Random.value * duration;
         angle = angle / 2 + Random.value* angle;
 
-        Debug.Log(angle);
-        Debug.Log(duration);
-
         DOTween.To(
             () => current,
             x =>

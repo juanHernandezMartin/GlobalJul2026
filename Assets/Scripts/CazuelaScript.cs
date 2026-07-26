@@ -5,7 +5,7 @@ public class CazuelaScript : MonoBehaviour
 {
     public List<GameObject> meatBallsInCazuela = new List<GameObject>();
 
-    public void LaunchMeatBall(GameObject meatBall)
+    public void LaunchMeatBall()
     {
         if( meatBallsInCazuela.Count > 0 )
         {
