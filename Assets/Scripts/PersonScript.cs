@@ -4,12 +4,20 @@ using UnityEngine;
 public class PersonScript : MonoBehaviour
 {
     [SerializeField] float angle = 5f;
-    [SerializeField] float duration = 1f;
+    [SerializeField] float duration = 2f;
 
     float current;
 
     void Start()
     {
+
+        //randomice duration & angle
+        duration = duration / 2 + Random.value * duration;
+        angle = angle / 2 + Random.value* angle;
+
+        Debug.Log(angle);
+        Debug.Log(duration);
+
         DOTween.To(
             () => current,
             x =>
