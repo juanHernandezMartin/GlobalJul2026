@@ -620,7 +620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MeatBallLauncher
   meatBallPrefab: {fileID: 9192985146304890872, guid: 6f93e4d81a487db4d9769fae2f2154df, type: 3}
-  maxLaunchForce: 3
+  maxLaunchForce: 2
   timeToHoldButton: 1
   timeToSpin: 2
   maxAngle: 70
