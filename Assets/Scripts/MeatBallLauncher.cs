@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class MeatBallLauncher : MonoBehaviour
 {
+    public GameObject ganarGameobject;
+    public GameObject perderGameObject;
+
     public int numMeatballs;
     public GameObject meatBallPrefab;
     public float minLaunchForce = 0f;
@@ -20,7 +23,7 @@ public class MeatBallLauncher : MonoBehaviour
     [HideInInspector]
     public bool isLaunching;
     private Vector3 startingRotation;
-    
+
 
     private Tween rotateTween;
 
@@ -33,25 +36,37 @@ public class MeatBallLauncher : MonoBehaviour
 
     public void Update()
     {
-        if( Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0))
+        if (Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0))
         {
-            cazuela.LaunchMeatBall();
-            numMeatballs--;
-            meatBallText.text = numMeatballs.ToString();
-            isLaunching = false;
-            LaunchMeatBall(currentForce);
-            currentForce = minLaunchForce;
-            rotateTween.Play();
+            if (numMeatballs > 0)
+            {
+                cazuela.LaunchMeatBall();
+                numMeatballs--;
+                meatBallText.text = numMeatballs.ToString();
+                isLaunching = false;
+                LaunchMeatBall(currentForce);
+                currentForce = minLaunchForce;
+                rotateTween.Play();
+
+                if( numMeatballs == 0)
+                {
+                    Invoke("Perder", 2);
+                }
+            }
+
         }
 
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
-            //stop rotation and start increasing force
-            rotateTween.Pause();
-            StartPressingLaunchButton();
+            if (numMeatballs > 0)
+            {
+                //stop rotation and start increasing force
+                rotateTween.Pause();
+                StartPressingLaunchButton();
+            }
         }
 
-        if( isLaunching )
+        if (isLaunching)
         {
             currentForce += (maxLaunchForce / timeToHoldButton) * Time.deltaTime;
             currentForce = Mathf.Clamp(currentForce, 0f, maxLaunchForce);
@@ -72,6 +87,14 @@ public class MeatBallLauncher : MonoBehaviour
         Vector3 forceDirecction = -transform.forward * force;
         forceDirecction.y += elevation;
         rb.AddForce(forceDirecction * force, ForceMode.Impulse);
+    }
+
+    public void Perder()
+    {
+        if( !ganarGameobject.activeSelf)
+        {
+            perderGameObject.SetActive(true);
+        }
     }
 
 }

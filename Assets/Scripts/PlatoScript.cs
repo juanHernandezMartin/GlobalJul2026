@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlatoScript : MonoBehaviour
 {
-    private bool isPlatoActive = false;
+    public bool isPlatoActive = false;
     public GameObject emptyPlate;
     public GameObject fullPlate;
     private AudioSource audioSource;
